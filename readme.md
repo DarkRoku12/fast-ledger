@@ -193,7 +193,7 @@ Disclaimer: Your mileage may vary, depending on the machine you're using, databa
 
 My database is a dockerized instance of __TimescaleDB__, using `PostgreSQL 16.6 on x86_64-pc-linux-musl, compiled by gcc (Alpine 13.2.1_git20240309) 13.2.1 20240309, 64-bit`.
 
-We're benchmarking and mass sending requests using [todo](bombardier)
+We're benchmarking and mass sending requests using [bombardier](https://github.com/codesenberg/bombardier)
 With: `bombardier -t 10s -c 100 -n 200 -l -m POST localhost:7574/transfer/test`
 
 __See local latency__
