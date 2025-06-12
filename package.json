@@ -1,0 +1,29 @@
+{
+	"scripts": {
+		"start-api": "tsx --watch api-server.ts",
+		"start-worker": "tsx --watch worker.ts",
+		"db-latency": "tsx db-latency.ts",
+		"db-migrate-up": "pnpx kysely-ctl migrate up",
+		"db-migrate-down": "pnpx kysely-ctl migrate down",
+		"db-migrate-all": "pnpx kysely-ctl migrate latest"
+	},
+	"dependencies": {
+		"@hono/node-server": "^1.14.4",
+		"@hono/zod-validator": "^0.7.0",
+		"decimal.js": "^10.5.0",
+		"dotenv-flow": "^4.1.0",
+		"hono": "^4.7.11",
+		"kysely": "^0.28.2",
+		"kysely-ctl": "^0.13.1",
+		"pg": "^8.16.0",
+		"uuid": "^11.1.0",
+		"zod": "^3.25.62"
+	},
+	"devDependencies": {
+		"@types/node": "^24.0.1",
+		"@types/pg": "^8.15.4",
+		"pm2": "^6.0.8",
+		"tsx": "^4.20.1",
+		"typescript": "^5.8.3"
+	}
+}

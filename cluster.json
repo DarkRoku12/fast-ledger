@@ -1,0 +1,28 @@
+{
+  "apps": [
+    {
+      "name": "API Server Cluster",
+      "script": "api-server.ts",
+      "interpreter": "node",
+      "interpreter_args": "--import tsx",
+      "exec_mode": "cluster",
+      "instances": 4,
+      "autorestart": false,
+      "env": {
+        "SSM": "false"
+      }
+    },
+    {
+      "name": "Ledger Worker",
+      "script": "worker.ts",
+      "interpreter": "node",
+      "interpreter_args": "--import tsx",
+      "exec_mode": "cluster",
+      "autorestart": true,
+      "instances": 1,
+      "env": {
+        "SSM": "false"
+      }
+    }
+  ]
+}
