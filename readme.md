@@ -7,10 +7,10 @@ The primary goal is to design a system that:
 - Is optimized for database [DOD](https://en.wikipedia.org/wiki/Data-oriented_design)
 - Is capable of handling a great number of TPS (Transactions Per Second).
 
-Amazon handles ~12M TPD (Transactions Per Day), that's ~140 TPS.
-PayPal handles ~41M TPD, that would be around 474 TPS.
-Verifone claims one of their advanced PoS models (Omni 3750) can process a transaction within 3-4 seconds, that's ~1/3 TPS.
-Ethereum blockchain processes a new block every ~12 seconds; each block often averages ~180 transactions, that give us ~15 TPS. 
+Amazon handles ~12M TPD (Transactions Per Day), that's ~140 TPS. <br>
+PayPal handles ~41M TPD, that would be around 474 TPS. <br>
+Verifone claims one of their advanced PoS models (Omni 3750) can process a transaction within 3-4 seconds, that's ~1/3 TPS. <br>
+Ethereum blockchain processes a new block every ~12 seconds; each block often averages ~180 transactions, that give us ~15 TPS. <br>
 
 ## The target
 
