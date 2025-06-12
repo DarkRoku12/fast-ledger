@@ -23,7 +23,7 @@ VPC also uses ECC RAM which is a bit slower if we were to compare a 1:1 CPU core
 By favoring a 'naive' architecture and making clever, informed decisions about the way we treat data, we can
 outperform the 'best' architectural approach, while keeping simplicity.
 
-This small project borrows inspiration from the book "[Data Oriented Design for Games]("https://www.manning.com/books/data-oriented-design-for-games")".
+This small project borrows inspiration from the book [Data Oriented Design for Games](https://www.manning.com/books/data-oriented-design-for-games).
 
 ## The strategy
 
