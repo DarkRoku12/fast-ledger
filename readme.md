@@ -47,11 +47,11 @@ But our services will meet two criteria:
 This service features a single endpoint that has the task to: transfer money in/out of an account.
 
 Responsibilities:
-- Create pending events to represent a state request to be performance.
+- Create pending events to represent a state request to be performed.
 - Return the associated task id.
 - [@] Conduct preliminary checks to off load some (not all) fraud detection mechanism and avoid spam attack saturation.
 
-[@] = Not implemented, but an idea of an bigger systems.
+[@] = Not implemented, but an idea of a bigger systems.
 
 Main Files:
 - `./api-server.ts` (entry point)
@@ -74,12 +74,14 @@ Check them for comments, there are plenty of explanations there!
 ### __Performance secrets__
 
 1. Database Latency.
+
 We NEED a database that is as close as possible for the API Server, this is not that imperative for the Ledger Worker, but quite critical
 for the API to reach peak TPS.
 
 Use the small utility `pnpm db-latency` to benchmark connection latency.
 
 2. Insert abuse.
+
 Both services are abusing of insert-only operations. Ever wonder why no-SQL (document) databases claim to be so fast at inserting
 and replicating? Because of the few checks they need to do compared to traditional databases, often, in SQL databases you have: several indexes,
 FK constraints, arbitrary checks, parametrized values, schema/type enforcement and coercing, and finally ACID handling.
@@ -94,10 +96,10 @@ With these considerations, our inserts will be blazingly fasts.
 When inspecting the code, we can realize that we are carefully using 'UPDATE' statements,
 our updates and inserts within the Ledger Worker are either performing one operation, or being sent off in a single batch.
 
-Doing this, we can keep our transaction small and efficient. And here is the thing, by taking inspiration from [WAL](https://en.wikipedia.org/iki/Write-ahead_logging), instead of updating every time an account balance is affected, we can create a re-buildable record by recording
-all transactions that modify our balance.
+Doing this, we can keep our transaction small and efficient. And here is the thing, by taking inspiration from [WAL](https://en.wikipedia.org/iki/Write-ahead_logging), instead of updating every time an account balance is affected, we can create a re-buildable record by recording all transactions that modify our balance.
 
 4. Efficient I/O.
+   
 As long as we delegate 'heavy' operations to a database (we can have many of them, and even specialized replicas), 
 Node.js will be efficient in doing what it is intended to do, orchestrating.
 
