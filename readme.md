@@ -210,7 +210,7 @@ Since the ledger worker only runs in one core (we cannot parallelize since we sh
 But there are two modes, the first is running it separate from API (`SSM=false`), and with the API (`SSM=true`).
 In this time, we're only running as well 1 instance of the API to receive the requests
 
-With `SSM=false` and single API instance we're achieving for API ~890 TPS, and the worker was processing whole batches of 200 events at 10~13ms, that would be 15~20 TPms, that's a whopping 15K-20K TPS. (TPms = Transactions per millisecond).
+With `SSM=false` and single API instance we're achieving for API ~890 TPS, and the worker was processing whole batches of 200 events at 10 ~ 13ms, that would be 15~20 TPms, that's a whopping 15K-20K TPS. (TPms = Transactions per millisecond).
 
 With `SSM=true`, the thing does not change much, but consider is the same Node.js server (no clustering) receiving the events and processing it, and we slowed down the batch processing 7%~60%. But the API could still deliver up to ~730 TPS, and the worker 12.5 TPms at worst.
 
