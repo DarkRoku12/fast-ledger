@@ -96,7 +96,7 @@ With these considerations, our inserts will be blazingly fasts.
 When inspecting the code, we can realize that we are carefully using 'UPDATE' statements,
 our updates and inserts within the Ledger Worker are either performing one operation, or being sent off in a single batch.
 
-Doing this, we can keep our transaction small and efficient. And here is the thing, by taking inspiration from [WAL](https://en.wikipedia.org/iki/Write-ahead_logging), instead of updating every time an account balance is affected, we can create a re-buildable record by recording all transactions that modify our balance.
+Doing this, we can keep our transaction small and efficient. And here is the thing, by taking inspiration from [WAL](https://en.wikipedia.org/wiki/Write-ahead_logging), instead of updating every time an account balance is affected, we can create a re-buildable record by recording all transactions that modify our balance.
 
 4. Efficient I/O.
    
